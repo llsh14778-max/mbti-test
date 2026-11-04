@@ -741,12 +741,35 @@ const choiceBtns = {
   D: document.getElementById('choice-d')
 };
 
+const choiceImgs = {
+  A: document.getElementById('choice-a-img'),
+  B: document.getElementById('choice-b-img'),
+  C: document.getElementById('choice-c-img'),
+  D: document.getElementById('choice-d-img')
+};
+
 const choiceTexts = {
   A: document.getElementById('choice-a-text'),
   B: document.getElementById('choice-b-text'),
   C: document.getElementById('choice-c-text'),
   D: document.getElementById('choice-d-text')
 };
+
+const choicesContainer = document.querySelector('.choices-container');
+let isTransitioning = false;
+
+// 이미지 로딩 실패 시에도 텍스트 선택지가 정상 작동하도록 폴백 등록
+['A', 'B', 'C', 'D'].forEach((key) => {
+  const imgEl = choiceImgs[key];
+  if (imgEl) {
+    imgEl.addEventListener('error', () => {
+      imgEl.parentElement.classList.add('img-fallback');
+    });
+    imgEl.addEventListener('load', () => {
+      imgEl.parentElement.classList.remove('img-fallback');
+    });
+  }
+});
 
 const loadingMessage = document.getElementById('loading-message');
 const loadingBarFill = document.getElementById('loading-bar-fill');
@@ -777,32 +800,60 @@ function startTest() {
 function renderQuestion() {
   const currentQ = questions[currentIndex];
   const total = questions.length;
+  const qNum = currentIndex + 1;
 
   sceneIcon.textContent = currentQ.sceneIcon;
   sceneTag.textContent = currentQ.sceneTag;
-  questionNumber.textContent = `Q${currentIndex + 1}.`;
+  questionNumber.textContent = `Q${qNum}.`;
   questionTitle.textContent = currentQ.question;
 
+  let maxLen = 0;
   ['A', 'B', 'C', 'D'].forEach((key) => {
-    choiceTexts[key].textContent = currentQ.choices[key].text;
+    const choiceData = currentQ.choices[key];
+    choiceBtns[key].classList.remove('selected-pop');
+    choiceTexts[key].textContent = choiceData.text;
+    if (choiceData.text.length > maxLen) {
+      maxLen = choiceData.text.length;
+    }
+
+    const imgPath = choiceData.img || `assets/choices/q${qNum}_${key.toLowerCase()}.svg`;
+    choiceImgs[key].src = imgPath;
+    choiceImgs[key].alt = `Q${qNum} 선택지 ${key} 병맛 상황 이미지`;
   });
 
-  progressText.textContent = `SCENE ${currentIndex + 1} / ${total}`;
-  progressBarFill.style.width = `${((currentIndex + 1) / total) * 100}%`;
+  // 글자가 유독 길고 화면이 좁은 모바일일 경우 1열로 자연스럽게 전환
+  if (choicesContainer) {
+    const isNarrowMobile = window.innerWidth < 390 && maxLen > 48;
+    choicesContainer.classList.toggle('single-column', isNarrowMobile);
+  }
+
+  progressText.textContent = `SCENE ${qNum} / ${total}`;
+  progressBarFill.style.width = `${(qNum / total) * 100}%`;
 
   prevBtn.disabled = currentIndex === 0;
+  isTransitioning = false;
 }
 
-// 선택지 클릭 처리
+// 선택지 클릭 처리 (반응 애니메이션 후 다음 질문으로 전환)
 function handleChoice(choiceKey) {
-  answers[currentIndex] = choiceKey;
+  if (isTransitioning) return;
+  isTransitioning = true;
 
-  if (currentIndex < questions.length - 1) {
-    currentIndex += 1;
-    renderQuestion();
-  } else {
-    runAnalysisLoading();
+  answers[currentIndex] = choiceKey;
+  const btn = choiceBtns[choiceKey];
+  if (btn) {
+    btn.classList.add('selected-pop');
   }
+
+  setTimeout(() => {
+    if (currentIndex < questions.length - 1) {
+      currentIndex += 1;
+      renderQuestion();
+    } else {
+      isTransitioning = false;
+      runAnalysisLoading();
+    }
+  }, 240);
 }
 
 // 이전 질문으로 이동
