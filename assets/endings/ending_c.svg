@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" width="480" height="240">
+  <defs>
+    <linearGradient id="bg_ending_c" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="240" fill="url(#bg_ending_c)"/>
+  <rect x="0" y="0" width="480" height="18" fill="#000" fill-opacity="0.6"/>
+  <rect x="0" y="222" width="480" height="18" fill="#000" fill-opacity="0.6"/>
+  <g transform="translate(80, -12)">
+    
+    <g transform="translate(0, 14)">
+      <!-- 정장 어깨 -->
+      <path d="M74 222 Q160 180 246 222 L258 255 L62 255 Z" fill="#18181b" stroke="#000" stroke-width="4.5"/>
+      <path d="M142 192 L160 226 L178 192" fill="#ffffff" stroke="#000" stroke-width="3"/>
+      <path d="M155 198 L160 232 L165 198 Z" fill="#dc2626"/>
+      <!-- 얼굴 -->
+      <ellipse cx="160" cy="116" rx="58" ry="64" fill="#fde68a" stroke="#111" stroke-width="4.5"/>
+      <circle cx="99" cy="120" r="11" fill="#fcd34d" stroke="#111" stroke-width="3.5"/>
+      <circle cx="221" cy="120" r="11" fill="#fcd34d" stroke="#111" stroke-width="3.5"/>
+      <!-- 헤어 -->
+      <path d="M100 100 Q104 46 160 48 Q216 46 220 100 Q196 70 160 76 Q124 70 100 100 Z" fill="#111111"/>
+      
+        <path d="M114 96 Q130 88 144 96" stroke="#111" stroke-width="3.5" fill="none"/>
+        <path d="M176 96 Q190 88 206 96" stroke="#111" stroke-width="3.5" fill="none"/>
+        <circle cx="130" cy="110" r="7" fill="#111"/><circle cx="128" cy="108" r="2.5" fill="#fff"/>
+        <circle cx="190" cy="110" r="7" fill="#111"/><circle cx="188" cy="108" r="2.5" fill="#fff"/>
+      
+      <path d="M144 144 Q160 154 176 144" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M214 90 Q221 104 214 112 Q207 104 214 90 Z" fill="#38bdf8" stroke="#111" stroke-width="2"/>
+      
+        <g transform="translate(218, 180) rotate(-12)">
+          <rect x="-20" y="-34" width="40" height="68" rx="6" fill="#09090b" stroke="#f472b6" stroke-width="3"/>
+          <rect x="-15" y="-26" width="30" height="50" rx="2" fill="#fef08a"/>
+          <rect x="-11" y="-18" width="22" height="8" rx="3" fill="#111"/>
+          <rect x="-11" y="-4" width="18" height="8" rx="3" fill="#dc2626"/>
+        </g>
+      
+    </g>
+  
+  </g>
+</svg>

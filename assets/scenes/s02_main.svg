@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260">
+  <defs>
+    <linearGradient id="bg_s02_main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a120b"/>
+      <stop offset="100%" stop-color="#3c2a21"/>
+    </linearGradient>
+    <radialGradient id="glow_s02_main" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="260" fill="url(#bg_s02_main)"/>
+  <rect width="480" height="260" fill="url(#glow_s02_main)"/>
+  <rect x="0" y="0" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  <rect x="0" y="238" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  
+        <!-- 총을 내린 금니 동창 -->
+        <ellipse cx="240" cy="155" rx="64" ry="70" fill="#fcd34d" stroke="#111" stroke-width="4.5"/>
+        <path d="M176 135 Q182 75 240 78 Q298 75 304 135 Z" fill="#111"/>
+        <circle cx="218" cy="145" r="8" fill="#111"/><circle cx="262" cy="145" r="8" fill="#111"/>
+        <path d="M214 176 Q240 202 266 176 Z" fill="#fff" stroke="#111" stroke-width="3.5"/>
+        <rect x="234" y="178" width="10" height="10" fill="#facc15" stroke="#111" stroke-width="1.5"/>
+        <!-- 회상 속 돈가스 식판 버블 -->
+        <g transform="translate(105, 88)">
+          <ellipse cx="0" cy="0" rx="68" ry="46" fill="#ffffff" fill-opacity="0.92" stroke="#111" stroke-width="3"/>
+          <rect x="-42" y="-22" width="84" height="44" rx="6" fill="#cbd5e1" stroke="#111" stroke-width="2.5"/>
+          <ellipse cx="-12" cy="4" rx="22" ry="12" fill="#b45309"/>
+          <circle cx="22" cy="-8" r="9" fill="#fef08a"/>
+        </g>
+      
+</svg>

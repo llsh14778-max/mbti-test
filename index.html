@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>극한 병맛 MBTI 생존 보고서</title>
+  <title>총구 앞 MBTI — 지구 대표로 끌려갔습니다</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,86 +11,139 @@
 </head>
 <body>
   <main class="app-container">
-    <!-- 1. 시작 화면 (기존 메인 사진 + 배경색 유지, 버튼 제목만 변경) -->
+    <!-- 상단 공통 유틸 바 (사운드 토글) -->
+    <div class="top-utility-bar">
+      <span class="movie-genre-tag">🎬 INTERACTIVE BLACK-COMEDY</span>
+      <button id="sound-toggle-btn" class="util-btn" type="button" aria-pressed="false">
+        🔇 효과음 OFF
+      </button>
+    </div>
+
+    <!-- 1. 시작 화면 (기존 메인 사진 및 배경/박스 색상 유지) -->
     <section id="start-screen" class="screen active">
+      <div class="title-header">
+        <span class="sub-badge">지구 대표로 끌려갔습니다</span>
+        <h1 class="game-main-title">총구 앞 MBTI</h1>
+      </div>
+
       <div class="main-image-wrapper">
-        <img src="main.jpg" alt="MBTI 테스트 메인 이미지" class="main-hero-image" />
+        <img src="main.jpg" alt="총구 앞 MBTI 메인 이미지" class="main-hero-image" />
         <span class="photo-overlay-text">준비됐니?</span>
       </div>
+
       <button id="start-btn" class="primary-btn" type="button">
         너 이 상황에서도 이럴 거야?
       </button>
+      <button id="resume-btn" class="secondary-btn hidden" type="button">
+        이어서 플레이하기
+      </button>
     </section>
 
-    <!-- 2. 질문 화면 (극한 상황 + 4지선다) -->
+    <!-- 2. 인터랙티브 시나리오 게임 화면 -->
     <section id="question-screen" class="screen">
       <div class="progress-header">
-        <button id="prev-btn" class="nav-back-btn" type="button" aria-label="이전 질문">
-          ← 이전 상황
+        <button id="prev-btn" class="nav-back-btn" type="button" aria-label="이전 장면">
+          ← 이전 장면
         </button>
-        <span id="progress-text" class="progress-text">SCENE 1 / 12</span>
+        <span id="progress-text" class="progress-text">SCENE 01 / 12</span>
+        <button id="reset-mid-btn" class="nav-reset-btn" type="button" aria-label="처음부터">
+          처음부터
+        </button>
       </div>
+
       <div class="progress-bar-track">
         <div id="progress-bar-fill" class="progress-bar-fill"></div>
       </div>
 
+      <!-- 챕터 및 장면 헤더 -->
       <div id="scene-banner" class="scene-banner">
-        <span id="scene-icon" class="scene-icon" aria-hidden="true">🔫</span>
-        <span id="scene-tag" class="scene-tag">극한 상황 #01</span>
+        <span id="scene-act" class="scene-act">ACT 1 · 잘못 걸린 인생</span>
+        <h2 id="scene-title" class="scene-title">SCENE 01 — 웃는 얼굴의 총구</h2>
       </div>
 
-      <div id="question-card" class="question-card">
-        <div id="question-number" class="question-number">Q1.</div>
-        <h2 id="question-title" class="question-title">질문이 여기에 표시됩니다.</h2>
+      <!-- 중앙: 메인 상황 이미지 + 영화 자막 대사 + 상황 설명 -->
+      <div class="scene-stage">
+        <div class="scene-main-img-wrap">
+          <img id="scene-main-img" class="scene-main-img" src="main.jpg" alt="장면 메인 스틸컷" />
+          <div class="subtitle-overlay">
+            <span id="scene-speaker" class="subtitle-speaker">의문의 금니 사내</span>
+            <p id="scene-dialogue" class="subtitle-line">"움직이지 마."</p>
+          </div>
+        </div>
+
+        <div class="scene-narration-box">
+          <p id="scene-narration" class="scene-narration"></p>
+        </div>
       </div>
 
-      <div class="choices-container">
-        <button id="choice-a" class="choice-btn" type="button">
-          <div class="choice-img-wrap">
-            <span class="choice-label">A</span>
-            <img id="choice-a-img" class="choice-img" src="assets/choices/q1_a.svg" alt="선택지 A 상황 이미지" loading="eager" />
-          </div>
-          <div class="choice-body">
-            <span id="choice-a-text" class="choice-text">선택지 A</span>
-          </div>
+      <!-- 선택 후 즉각 반응 컷신 패널 (선택 클릭 시 표시) -->
+      <div id="reaction-panel" class="reaction-panel hidden" aria-live="polite">
+        <div class="reaction-header">
+          <span id="reaction-choice-badge" class="reaction-choice-badge">선택 A의 후폭풍</span>
+          <span id="reaction-flag-badge" class="reaction-flag-badge">📌 기록 저장됨</span>
+        </div>
+        <p id="reaction-chosen-action" class="reaction-chosen-action"></p>
+        <div class="reaction-npc-box">
+          <span id="reaction-speaker" class="reaction-speaker">등장인물 반응</span>
+          <p id="reaction-line" class="reaction-line"></p>
+        </div>
+        <p id="reaction-desc" class="reaction-desc"></p>
+        <button id="next-scene-btn" class="primary-btn next-scene-btn" type="button">
+          다음 장면으로 이어지기 ▶
         </button>
+      </div>
 
-        <button id="choice-b" class="choice-btn" type="button">
-          <div class="choice-img-wrap">
-            <span class="choice-label">B</span>
-            <img id="choice-b-img" class="choice-img" src="assets/choices/q1_b.svg" alt="선택지 B 상황 이미지" loading="eager" />
-          </div>
-          <div class="choice-body">
-            <span id="choice-b-text" class="choice-text">선택지 B</span>
-          </div>
-        </button>
+      <!-- 하단: 4개의 선택지 이미지 카드 -->
+      <div id="choices-wrapper" class="choices-wrapper">
+        <p class="choice-prompt-label">⚡ 어떻게 행동할래? (카드를 클릭해 선택)</p>
+        <div class="choices-container">
+          <button id="choice-a" class="choice-btn" type="button">
+            <div class="choice-img-wrap">
+              <span class="choice-label">A</span>
+              <img id="choice-a-img" class="choice-img" src="assets/choices/q1_a.svg" alt="선택지 A 행동 이미지" />
+            </div>
+            <div class="choice-body">
+              <span id="choice-a-text" class="choice-text">선택지 A</span>
+            </div>
+          </button>
 
-        <button id="choice-c" class="choice-btn" type="button">
-          <div class="choice-img-wrap">
-            <span class="choice-label">C</span>
-            <img id="choice-c-img" class="choice-img" src="assets/choices/q1_c.svg" alt="선택지 C 상황 이미지" loading="eager" />
-          </div>
-          <div class="choice-body">
-            <span id="choice-c-text" class="choice-text">선택지 C</span>
-          </div>
-        </button>
+          <button id="choice-b" class="choice-btn" type="button">
+            <div class="choice-img-wrap">
+              <span class="choice-label">B</span>
+              <img id="choice-b-img" class="choice-img" src="assets/choices/q1_b.svg" alt="선택지 B 행동 이미지" />
+            </div>
+            <div class="choice-body">
+              <span id="choice-b-text" class="choice-text">선택지 B</span>
+            </div>
+          </button>
 
-        <button id="choice-d" class="choice-btn" type="button">
-          <div class="choice-img-wrap">
-            <span class="choice-label">D</span>
-            <img id="choice-d-img" class="choice-img" src="assets/choices/q1_d.svg" alt="선택지 D 상황 이미지" loading="eager" />
-          </div>
-          <div class="choice-body">
-            <span id="choice-d-text" class="choice-text">선택지 D</span>
-          </div>
-        </button>
+          <button id="choice-c" class="choice-btn" type="button">
+            <div class="choice-img-wrap">
+              <span class="choice-label">C</span>
+              <img id="choice-c-img" class="choice-img" src="assets/choices/q1_c.svg" alt="선택지 C 딱 맞는 이미지" />
+            </div>
+            <div class="choice-body">
+              <span id="choice-c-text" class="choice-text">선택지 C</span>
+            </div>
+          </button>
+
+          <button id="choice-d" class="choice-btn" type="button">
+            <div class="choice-img-wrap">
+              <span class="choice-label">D</span>
+              <img id="choice-d-img" class="choice-img" src="assets/choices/q1_d.svg" alt="선택지 D 행동 이미지" />
+            </div>
+            <div class="choice-body">
+              <span id="choice-d-text" class="choice-text">선택지 D</span>
+            </div>
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- 2.5. 병맛 결과 분석 로딩 화면 -->
     <section id="loading-screen" class="screen">
       <div class="loading-spinner" aria-hidden="true">🚨</div>
-      <p class="loading-badge">정신 상태 정밀 감식 중</p>
+      <p class="loading-badge">은하인사관리공단 최종 판정 중</p>
       <h2 id="loading-message" class="loading-message">
         정상적인 반응을 찾는 중... 실패.
       </h2>
@@ -99,86 +152,135 @@
       </div>
     </section>
 
-    <!-- 3. 결과 화면 (어처구니없는 생존 보고서) -->
+    <!-- 3. 결과 화면 (PART A: 나의 병맛 인생 결말 + PART B: 나의 MBTI) -->
     <section id="result-screen" class="screen">
       <div id="result-capture-area" class="result-capture-area">
-        <div class="badge">📋 어처구니없는 생존 보고서</div>
-        <div id="result-random-roast" class="result-random-roast">
-          "MBTI보다 다른 검사가 시급해 보입니다."
-        </div>
-        <div id="result-emoji" class="result-emoji">🌟</div>
-        <h2 id="result-type" class="result-type">ENTP</h2>
-        <p id="result-subtitle" class="result-subtitle">총 겨눈 사람한테 논리적으로 반박하는 인간</p>
+        <!-- PART A: 시나리오 멀티 엔딩 -->
+        <div class="part-section part-a">
+          <div class="part-header-badge">🎬 PART A · 나의 병맛 인생 결말</div>
+          <span id="ending-code-badge" class="ending-code-badge">ENDING A</span>
+          <h2 id="ending-title" class="ending-title">지구 대표 정규직 합격</h2>
 
-        <!-- 대표적인 황당한 대사 -->
-        <div class="quote-box">
-          <span class="quote-label">💬 죽기 직전 남길 대표 대사</span>
-          <p id="result-quote" class="result-quote">"잠깐만요, 그 논리대로면 저를 쏘시면 안 되는데요?"</p>
-        </div>
-
-        <div id="result-tags" class="result-tags"></div>
-
-        <!-- 극한 상황에서 벌이는 어이없는 행동 -->
-        <div class="result-description-box">
-          <h3 class="box-title">🎬 극한 상황 행동 분석</h3>
-          <p id="result-description" class="result-description"></p>
-        </div>
-
-        <!-- 친구가 읽으면 공감할 팩폭 3개 -->
-        <div class="fact-bomb-box">
-          <h3 class="box-title">💣 뼈 때리는 팩폭 3연타</h3>
-          <ul id="result-facts" class="fact-list"></ul>
-        </div>
-
-        <!-- 병맛 생존 능력 평가 -->
-        <div class="survival-stats-box">
-          <h3 class="box-title">📊 병맛 생존 능력치 (※ 실제 생존과 무관)</h3>
-          <div id="survival-stats" class="survival-stats"></div>
-        </div>
-
-        <!-- MBTI 4대 지표 비율 -->
-        <div class="score-bars" id="score-bars"></div>
-
-        <!-- 같은 유형의 유명인 & 캐릭터 -->
-        <div class="celebrity-section">
-          <h3 class="section-heading">🌟 같은 유형의 유명인 &amp; 캐릭터</h3>
-          <div id="celebrity-list" class="celebrity-list"></div>
-        </div>
-
-        <!-- 궁합 카드 -->
-        <div class="match-grid">
-          <div class="match-card good">
-            <span class="match-title">💖 함께 살아남을 환상의 공범</span>
-            <strong id="best-match" class="match-type">INFJ</strong>
+          <div class="ending-img-wrap">
+            <img id="ending-img" class="ending-img" src="assets/endings/ending_a.svg" alt="엔딩 장면 이미지" />
           </div>
-          <div class="match-card caution">
-            <span class="match-title">⚡ 둘이 있으면 먼저 터지는 조합</span>
-            <strong id="worst-match" class="match-type">ISFJ</strong>
+
+          <div class="ending-narration-box">
+            <p id="ending-narration" class="ending-narration"></p>
+            <p id="ending-final-quote" class="ending-final-quote"></p>
+          </div>
+
+          <div class="ending-extra-box">
+            <div class="ending-extra-row">
+              <span class="extra-label">🗣️ 주인공의 최후 한마디</span>
+              <p id="ending-protagonist-line" class="extra-content"></p>
+            </div>
+            <div class="ending-extra-row">
+              <span class="extra-label">🤯 플레이 중 가장 어처구니없었던 행동 회상</span>
+              <p id="highlight-memory-text" class="extra-content"></p>
+            </div>
           </div>
         </div>
 
-        <!-- 한 줄 결론 -->
-        <div class="one-liner-box">
-          <span class="one-liner-label">📌 한 줄 최종 결론</span>
-          <p id="result-oneliner" class="result-oneliner"></p>
+        <hr class="part-divider" />
+
+        <!-- PART B: 나의 MBTI 분석 보고서 -->
+        <div class="part-section part-b">
+          <div class="part-header-badge">🧬 PART B · 나의 MBTI 생존 보고서</div>
+          <div id="result-random-roast" class="result-random-roast">
+            "MBTI보다 다른 검사가 시급해 보입니다."
+          </div>
+
+          <div id="result-emoji" class="result-emoji">🌟</div>
+          <h2 id="result-type" class="result-type">ENTP</h2>
+          <p id="result-subtitle" class="result-subtitle">총 겨눈 사람한테 논리적으로 반박하는 인간</p>
+
+          <!-- 대표 대사 -->
+          <div class="quote-box">
+            <span class="quote-label">💬 총구 앞 대표 대사</span>
+            <p id="result-quote" class="result-quote"></p>
+          </div>
+
+          <div id="result-tags" class="result-tags"></div>
+
+          <!-- 100~150자 블랙코미디 성격 설명 -->
+          <div class="result-description-box">
+            <h3 class="box-title">🎬 극한 상황 성격 분석</h3>
+            <p id="result-description" class="result-description"></p>
+          </div>
+
+          <!-- 친구들이 읽으면 웃을 팩폭 3개 -->
+          <div class="fact-bomb-box">
+            <h3 class="box-title">💣 친구가 무릎 치는 팩폭 3연타</h3>
+            <ul id="result-facts" class="fact-list"></ul>
+          </div>
+
+          <!-- 실제 MBTI 성향을 반영한 강점과 약점 -->
+          <div class="sw-grid">
+            <div class="sw-card strength">
+              <span class="sw-title">💪 생존 강점</span>
+              <p id="result-strength" class="sw-text"></p>
+            </div>
+            <div class="sw-card weakness">
+              <span class="sw-title">⚠️ 치명적 약점</span>
+              <p id="result-weakness" class="sw-text"></p>
+            </div>
+          </div>
+
+          <!-- 병맛 생존 능력 지표 -->
+          <div class="survival-stats-box">
+            <h3 class="box-title">📊 병맛 생존 능력 지표 (※ 오락용 수치)</h3>
+            <div id="survival-stats" class="survival-stats"></div>
+          </div>
+
+          <!-- MBTI 4대 지표 비율 -->
+          <div class="score-bars" id="score-bars"></div>
+
+          <!-- 같은 유형의 유명인 & 캐릭터 -->
+          <div class="celebrity-section">
+            <h3 class="section-heading">🌟 같은 유형의 유명인 &amp; 캐릭터</h3>
+            <div id="celebrity-list" class="celebrity-list"></div>
+          </div>
+
+          <!-- 궁합 카드 -->
+          <div class="match-grid">
+            <div class="match-card good">
+              <span class="match-title">💖 함께 살아남을 환상의 공범</span>
+              <strong id="best-match" class="match-type">INFJ</strong>
+            </div>
+            <div class="match-card caution">
+              <span class="match-title">⚡ 둘이 있으면 먼저 터지는 조합</span>
+              <strong id="worst-match" class="match-type">ISFJ</strong>
+            </div>
+          </div>
+
+          <!-- 공유용 한 줄 문구 -->
+          <div class="one-liner-box">
+            <span class="one-liner-label">📌 공유용 한 줄 결론</span>
+            <p id="result-oneliner" class="result-oneliner"></p>
+          </div>
         </div>
       </div>
 
       <div class="result-actions">
-        <button id="share-btn" class="primary-btn" type="button">
-          결과 보고서 복사 &amp; 친구 놀리기
+        <button id="save-img-btn" class="primary-btn" type="button">
+          🖼️ 결과 카드 이미지 저장하기
+        </button>
+        <button id="share-btn" class="secondary-btn" type="button">
+          🔗 결과 링크 &amp; 요약 복사하기 (카톡 공유용)
         </button>
         <button id="restart-btn" class="secondary-btn" type="button">
-          처음부터 다시 살아남기
+          🔄 처음부터 다시 하기 (다른 엔딩 도전)
         </button>
       </div>
       <p id="toast-message" class="toast-message" aria-live="polite"></p>
       <p class="disclaimer-text">
-        ※ 본 테스트는 전문 심리검사가 아닌 블랙코미디 오락용 성향 테스트입니다.
+        ※ 본 콘텐츠는 정식 MBTI 검사나 심리 진단이 아닌 인터랙티브 블랙코미디 오락용 게임입니다.
       </p>
     </section>
   </main>
 
+  <script src="scenario-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

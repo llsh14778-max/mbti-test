@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260">
+  <defs>
+    <linearGradient id="bg_s03_main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <radialGradient id="glow_s03_main" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="260" fill="url(#bg_s03_main)"/>
+  <rect width="480" height="260" fill="url(#glow_s03_main)"/>
+  <rect x="0" y="0" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  <rect x="0" y="238" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  
+        <!-- 장난감 총 & 은하인사관리공단 명함 클로즈업 -->
+        <g transform="translate(145, 115) rotate(-12)">
+          <rect x="-60" y="-22" width="110" height="34" rx="8" fill="#3b82f6" stroke="#111" stroke-width="4"/>
+          <rect x="44" y="-18" width="18" height="26" rx="4" fill="#f97316" stroke="#111" stroke-width="3"/>
+          <rect x="-48" y="8" width="32" height="48" rx="6" fill="#2563eb" stroke="#111" stroke-width="4"/>
+        </g>
+        <g transform="translate(295, 145) rotate(8)">
+          <rect x="-85" y="-52" width="170" height="104" rx="10" fill="#ffffff" stroke="#111" stroke-width="4.5"/>
+          <circle cx="-48" cy="-14" r="18" fill="#6366f1"/>
+          <ellipse cx="-48" cy="-14" rx="28" ry="8" fill="none" stroke="#facc15" stroke-width="3"/>
+          <rect x="-12" y="-26" width="76" height="10" rx="3" fill="#111"/>
+          <rect x="-12" y="-8" width="56" height="8" rx="3" fill="#dc2626"/>
+          <rect x="-64" y="22" width="128" height="8" rx="3" fill="#64748b"/>
+        </g>
+      
+</svg>

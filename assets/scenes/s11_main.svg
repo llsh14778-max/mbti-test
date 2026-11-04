@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260">
+  <defs>
+    <linearGradient id="bg_s11_main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#134e4a"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <radialGradient id="glow_s11_main" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="260" fill="url(#bg_s11_main)"/>
+  <rect width="480" height="260" fill="url(#glow_s11_main)"/>
+  <rect x="0" y="0" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  <rect x="0" y="238" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  
+        <!-- 해지 버튼 없는 우주 멤버십 홀로그램 약관 -->
+        <rect x="115" y="32" width="250" height="196" rx="12" fill="#f0fdf4" stroke="#2dd4bf" stroke-width="4.5"/>
+        <rect x="145" y="56" width="190" height="24" rx="6" fill="#0f766e"/>
+        <line x1="145" y1="102" x2="335" y2="102" stroke="#64748b" stroke-width="5"/>
+        <line x1="145" y1="124" x2="315" y2="124" stroke="#64748b" stroke-width="5"/>
+        <rect x="155" y="156" width="170" height="44" rx="10" fill="#dc2626" stroke="#111" stroke-width="3.5"/>
+        <circle cx="240" cy="178" r="10" fill="#fde047"/>
+      
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="480" height="260">
+  <defs>
+    <linearGradient id="bg_s07_main" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#052e16"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+    <radialGradient id="glow_s07_main" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.72"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="260" fill="url(#bg_s07_main)"/>
+  <rect width="480" height="260" fill="url(#glow_s07_main)"/>
+  <rect x="0" y="0" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  <rect x="0" y="238" width="480" height="22" fill="#000000" fill-opacity="0.65"/>
+  
+        <!-- 다이소 넥타이를 맨 외계인 면접관 3명 -->
+        
+          <g transform="translate(110, 135)">
+            <path d="M-48 95 Q0 65 48 95 L56 125 L-56 125 Z" fill="#1e293b" stroke="#111" stroke-width="4"/>
+            <polygon points="-8,68 8,68 12,115 0,124 -12,115" fill="#ef4444" stroke="#111" stroke-width="2.5"/>
+            <ellipse cx="0" cy="10" rx="44" ry="54" fill="#4ade80" stroke="#111" stroke-width="4"/>
+            <ellipse cx="-16" cy="6" rx="13" ry="19" transform="rotate(-14)" fill="#09090b"/>
+            <ellipse cx="16" cy="6" rx="13" ry="19" transform="rotate(14)" fill="#09090b"/>
+            <circle cx="-20" cy="0" r="4" fill="#fff"/><circle cx="12" cy="0" r="4" fill="#fff"/>
+          </g>
+        
+          <g transform="translate(240, 135)">
+            <path d="M-48 95 Q0 65 48 95 L56 125 L-56 125 Z" fill="#1e293b" stroke="#111" stroke-width="4"/>
+            <polygon points="-8,68 8,68 12,115 0,124 -12,115" fill="#eab308" stroke="#111" stroke-width="2.5"/>
+            <ellipse cx="0" cy="10" rx="44" ry="54" fill="#4ade80" stroke="#111" stroke-width="4"/>
+            <ellipse cx="-16" cy="6" rx="13" ry="19" transform="rotate(-14)" fill="#09090b"/>
+            <ellipse cx="16" cy="6" rx="13" ry="19" transform="rotate(14)" fill="#09090b"/>
+            <circle cx="-20" cy="0" r="4" fill="#fff"/><circle cx="12" cy="0" r="4" fill="#fff"/>
+          </g>
+        
+          <g transform="translate(370, 135)">
+            <path d="M-48 95 Q0 65 48 95 L56 125 L-56 125 Z" fill="#1e293b" stroke="#111" stroke-width="4"/>
+            <polygon points="-8,68 8,68 12,115 0,124 -12,115" fill="#ef4444" stroke="#111" stroke-width="2.5"/>
+            <ellipse cx="0" cy="10" rx="44" ry="54" fill="#4ade80" stroke="#111" stroke-width="4"/>
+            <ellipse cx="-16" cy="6" rx="13" ry="19" transform="rotate(-14)" fill="#09090b"/>
+            <ellipse cx="16" cy="6" rx="13" ry="19" transform="rotate(14)" fill="#09090b"/>
+            <circle cx="-20" cy="0" r="4" fill="#fff"/><circle cx="12" cy="0" r="4" fill="#fff"/>
+          </g>
+        
+        <rect x="40" y="215" width="400" height="45" fill="#78350f" stroke="#111" stroke-width="4"/>
+      
+</svg>
